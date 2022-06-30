@@ -43,6 +43,7 @@ function packAsync(images, options) {
     options.allowRotation = options.allowRotation === undefined ? true : options.allowRotation;
     options.detectIdentical = options.detectIdentical === undefined ? true : options.detectIdentical;
     options.allowTrim = options.allowTrim === undefined ? true : options.allowTrim;
+    options.trimWithoutOffset = options.trimWithoutOffset === undefined || !options.allowTrim ? false : options.trimWithoutOffset;
     options.trimMode = options.trimMode === undefined ? "trim" : options.trimMode;
     options.alphaThreshold = options.alphaThreshold === undefined ? 0 : options.alphaThreshold;
     options.removeFileExtension = options.removeFileExtension === undefined ? false : options.removeFileExtension;

@@ -64,7 +64,7 @@ class Trimmer {
         return 0;
     }
 
-    static trim(rects, threshold=0) {
+    static trim(rects, threshold=0, trimWithoutOffset=false) {
 
         for(let item of rects) {
 
@@ -78,6 +78,14 @@ class Trimmer {
                 spaces.right = this.getRightSpace(data, img.width, img.height, threshold);
                 spaces.top = this.getTopSpace(data, img.width, img.height, threshold);
                 spaces.bottom = this.getBottomSpace(data, img.width, img.height, threshold);
+                if (trimWithoutOffset) {
+                    let offsetX = spaces.left > spaces.right ? spaces.right : spaces.left;
+                    spaces.left = offsetX;
+                    spaces.right = offsetX;
+                    let offsetY = spaces.top > spaces.bottom ? spaces.bottom : spaces.top;
+                    spaces.top = offsetY;
+                    spaces.bottom = offsetY;
+                }
 
                 if(spaces.left > 0 || spaces.right > 0 || spaces.top > 0 || spaces.bottom > 0) {
                     item.trimmed = true;

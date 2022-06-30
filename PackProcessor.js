@@ -126,7 +126,7 @@ class PackProcessor {
         }
 
         if (options.allowTrim) {
-            Trimmer.trim(rects, alphaThreshold);
+            Trimmer.trim(rects, alphaThreshold, options.trimWithoutOffset);
         }
 
         for (let item of rects) {

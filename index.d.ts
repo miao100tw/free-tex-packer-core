@@ -190,6 +190,11 @@ export interface TexturePackerOptions {
    */
   allowTrim?: boolean;
   /**
+   * Trim without offset
+   * Original free-tex-packer-cli with offset seem to generate .png files with some deviation.
+   */
+  trimWithoutOffset?: boolean;
+  /**
    * Trim mode
    *
    * @default {@link TrimMode.TRIM}
